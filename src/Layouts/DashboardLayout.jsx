@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Outlet, Link, useLocation } from "react-router";
+import { Outlet, Link, useLocation, useNavigate } from "react-router";
 
 function DashboardLayout() {
+    const navigate = useNavigate();
     const location = useLocation();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -17,6 +18,8 @@ function DashboardLayout() {
         { name: "Size", icon: "📏", path: "/dashboard/size" },
         { name: "Purchase", icon: "📊", path: "/dashboard/purchase" },
         { name: "Customer", icon: "👥", path: "/dashboard/customer" },
+        { name: "Company", icon: "🏢", path: "/dashboard/company" },
+        { name: "Users", icon: "👤", path: "/dashboard/users" },
     ];
 
     return (
@@ -54,14 +57,17 @@ function DashboardLayout() {
             {/* Main Content */}
             <div className="flex-1 flex flex-col overflow-hidden">
                 {/* Header */}
-                <header className="bg-white px-8 py-4 flex items-center justify-between">
+                <header className="bg-[#f3f4f8] px-8 py-4 flex items-center justify-between">
                     <div className="flex items-center">
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="lg:hidden mr-4 text-gray-600">
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
                             </svg>
                         </button>
-                        <button className="bg-[#00B074] text-white p-2 rounded-md">
+
+                        {/* add new sales button */}
+
+                        <button onClick={() => navigate('/dashboard/add-sales')} className="bg-[#00B074] text-white p-2 rounded-md tooltip tooltip-right cursor-pointer" data-tip="add new sales">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
                             </svg>
