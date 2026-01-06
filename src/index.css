@@ -4,4 +4,6 @@
 @plugin "daisyui/theme" {
   default: true;
   --color-primary: #00b074;
+  --color-secondary: #00bafe;
+  
 }

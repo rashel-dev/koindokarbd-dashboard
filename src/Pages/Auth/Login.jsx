@@ -81,7 +81,7 @@ const Login = () => {
 
                     {/* Action Button */}
                     <div className="pt-4">
-                        <button className="w-full bg-primary text-white font-bold py-2 text-[16px] transition-opacity hover:opacity-90 cursor-pointer">
+                        <button disabled={loading} className={`w-full bg-primary text-white font-bold py-2 text-[16px] transition-opacity hover:opacity-90 cursor-pointer ${loading ? "opacity-70" : ""} `}>
                             {loading ? <span className="loading loading-spinner loading-md"></span> : <span>Login</span>}
                         </button>
                     </div>
