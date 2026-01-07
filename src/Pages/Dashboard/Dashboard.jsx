@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoCartOutline } from "react-icons/io5";
 
 const Dashboard = () => {
+
+    useEffect(() => {
+        document.title = "Dashboard | Koindokarbd";
+    }, []);
     return (
         <div className="space-y-6">
             <div>
