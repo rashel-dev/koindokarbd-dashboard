@@ -1,27 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 const Users = () => {
+    const [users, setUsers] = useState([]);
 
+    //set title
     useEffect(() => {
         document.title = "Users | Koindokarbd";
     }, []);
 
-    const users = [
-        {
-            id: 2,
-            name: "Demo seller",
-            phone: "01675721896",
-            email: "demo@gmail.com",
-            role: "Saller",
-            address: "pass:\ndemo@gmail.com",
-            joinAt: "Wed Oct, 2025",
-            isCurrentUser: false,
-            avatar: null,
-        },
-    ];
+    //fetch users data
+    useEffect(() => {
+        const fetchUsers = async () => {
+            try {
+                const response = await fetch("http://localhost:3000/users");
+                const data = await response.json();
+                setUsers(data);
+            } catch (error) {
+                console.error("Error fetching users:", error);
+            }
+        };
+        fetchUsers();
+    }, []);
 
     return (
-        <div className="p-4 md:p-8 bg-white min-h-screen font-sans">
+        <div className="p-4 bg-white min-h-screen font-sans">
             {/* Header Section */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
