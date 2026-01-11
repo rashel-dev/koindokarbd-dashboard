@@ -23,11 +23,11 @@ const Users = () => {
     }, []);
 
     return (
-        <div className="p-4 bg-white min-h-screen font-sans">
+        <div className="p-4 bg-white font-sans">
             {/* Header Section */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800">Users list</h1>
+                    <h1 className="text-xl font-bold text-gray-800">Users list</h1>
                     <p className="text-gray-500 text-sm mt-1">Manage your all users from here.</p>
                 </div>
                 <div className="flex items-center gap-3 w-full md:w-auto">
@@ -48,7 +48,7 @@ const Users = () => {
                     {/* Table Head */}
                     <thead>
                         <tr className="bg-primary text-white border-none">
-                            <th className="py-4 px-6 font-bold text-center border-none w-16 text-base"></th>
+                            <th className="py-4 px-2 font-bold text-center border-none w-16 text-base"></th>
                             <th className="py-4 px-4 font-bold text-left border-none text-base">User</th>
                             <th className="py-4 px-4 font-bold text-left border-none text-base">Email</th>
                             <th className="py-4 px-4 font-bold text-left border-none text-base">Role</th>
@@ -60,13 +60,13 @@ const Users = () => {
                     <tbody>
                         {users.map((user, index) => (
                             <tr key={user.id} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                <td className="py-6 px-6 text-center font-bold text-gray-800 text-lg">{index + 1}</td>
-                                <td className="py-6 px-4">
+                                <td className="py-2 px-2 text-center font-bold text-gray-800 text-lg">{index + 1}</td>
+                                <td className="py-2 px-2">
                                     <div className="flex items-center gap-4">
                                         <div className="avatar">
-                                            <div className="w-14 h-14 rounded-full border border-gray-300 overflow-hidden bg-white flex items-center justify-center">
-                                                {user.avatar ? (
-                                                    <img src={user.avatar} alt={user.name} className="object-cover" />
+                                            <div className="w-10 h-10 rounded-full border border-gray-300 overflow-hidden bg-white flex items-center justify-center">
+                                                {user.image ? (
+                                                    <img src={user.image} alt={user.name} className="object-cover" />
                                                 ) : (
                                                     <div className="flex items-center justify-center w-full h-full p-2">
                                                         <svg viewBox="0 0 24 24" className="w-full h-full text-gray-400" fill="none" stroke="currentColor" strokeWidth="1">
@@ -79,19 +79,19 @@ const Users = () => {
                                             </div>
                                         </div>
                                         <div className="flex flex-col">
-                                            <span className="text-gray-800 font-medium text-base">{user.name}</span>
-                                            {user.phone && <span className="text-gray-800 text-base">{user.phone}</span>}
+                                            <span className="text-gray-800">{user.name}</span>
+                                            {user.mobile && <span className="text-gray-800">{user.mobile}</span>}
                                         </div>
                                     </div>
                                 </td>
-                                <td className="py-6 px-4">
+                                <td className="py-2 px-2">
                                     <a href={`mailto:${user.email}`} className="text-[#00b074] hover:underline font-medium text-base">
                                         {user.email}
                                     </a>
                                 </td>
-                                <td className="py-6 px-4">
+                                <td className="py-2 px-2">
                                     <span
-                                        className={`px-4 py-1.5 rounded-none text-sm font-medium inline-block min-w-[80px] text-center ${
+                                        className={`px-2 py-1 rounded-none text-sm font-medium inline-block text-center ${
                                             user.role === "Admin" ? "bg-[#00bafe] text-white" : "bg-[#00c292] text-white"
                                         }`}
                                     >
